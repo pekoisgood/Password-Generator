@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Password Generator</title>
+</head>
+<body>
+    <h1 class="white">Generate a</h1>
+    <h1 class="green">random password</h1>
+    <p class="gray">Never use an insecure passord again</p>
+    <form action="">
+        <div class="container-checkbox">
+            <label>
+                <input class="checkbox" type="checkbox" name="" id="symbols" checked>Symbols
+            </label>
+            <label>
+                <input class="checkbox" type="checkbox" name="" id="numbers" checked>Numbers
+            </label>
+        </div>
+        <input type="number" min="1" id="passord_length" placeholder="How many character of password?"/>
+        <button>Generate password</button>
+    </form>
+    <hr>
+    <div class="container-password">
+        <div class="container-option">
+            <h4>Option 1 :</h4>
+            <p id="password1" onclick="copyPassword(this)"></p>
+        </div>
+        <div class="container-option">
+            <h4>Option 2 :</h4>
+            <p id="password2" onclick="copyPassword(this)"></p>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
