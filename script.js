@@ -14,29 +14,32 @@ let symbols = document.getElementById("symbols");
 let numbers = document.getElementById("numbers");
 
 
-//0 52
 // generate random  character using characters array
 function randomPassword() {
-    let numbers = "";
-
-    for (let i = 0; i < length.value; i++){
-        if (symbols.checked == false && numbers.checked == true) {
-            let charactersWithoutNumbers = [...characters].splice(52, 10);
-            numbers += charactersWithoutNumbers[randomIndex()];
-        }else {
+    if (symbols.checked == true && numbers.checked == false) {
+        let numbers = "";
+        let x = [...characters];
+        x.splice(52,10);
+        for (let i = 0; i < length.value; i++){
+            numbers += x[randomIndex()];
+        }
+        return numbers;  
+    } else {
+        let numbers = "";
+        for (let i = 0; i < length.value; i++){
             numbers += characters[randomIndex()];
         }
-    }
-    return numbers;
+        return numbers;  
+    };
 };
 
 function randomIndex() {
     if (symbols.checked == true && numbers.checked == true) {
-        return (Math.floor(Math.random() * characters.length));
+        return (Math.floor(Math.random() * characters.length));    
     } else if ( symbols.checked == true && numbers.checked == false ) {
-        return (Math.floor(Math.random() * (characters.length - 27)));
-    } else if ( symbols.checked == false && numbers.checked == true ){
         return (Math.floor(Math.random() * (characters.length - 10)));
+    } else if ( symbols.checked == false && numbers.checked == true ){
+        return (Math.floor(Math.random() * (characters.length - 29)));
     } else {
         return (Math.floor(Math.random() * (characters.length - 39)));
     }
@@ -44,11 +47,11 @@ function randomIndex() {
 };
 
 
-btn.addEventListener('click', () => {
+function randomPasswordBtn () {
     // check if the input is valid (should be numbers)
     password1.textContent = randomPassword();
     password2.textContent = randomPassword();
-});
+};
 
 function copyPassword(passwordEl) {
     let El = passwordEl.id;

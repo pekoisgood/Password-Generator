@@ -105,8 +105,9 @@ hr {
     background: #273549;
     border-radius: 6px;
     color: #55F991;
-    width: 90%;
-    height: 30px;
+    max-width: 90%;
+    height: fit-content;
+    min-height: 30px;
 }
 
 .container-option p:hover {
