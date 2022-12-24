@@ -6,12 +6,12 @@ const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M",
 "|",":",";","<",">",".","?",
 "/"];
 
-let password1 = document.getElementById("password1");
-let password2 = document.getElementById("password2");
-let length = document.getElementById("passord_length");
-let btn = document.querySelector("button");
-let symbols = document.getElementById("symbols");
-let numbers = document.getElementById("numbers");
+const password1 = document.getElementById("password1");
+const password2 = document.getElementById("password2");
+const length = document.getElementById("passord_length");
+const btn = document.querySelector("button");
+const symbols = document.getElementById("symbols");
+const numbers = document.getElementById("numbers");
 
 
 // generate random  character using characters array
@@ -53,10 +53,10 @@ function randomPasswordBtn () {
     password2.textContent = randomPassword();
 };
 
-function copyPassword(passwordEl) {
+async function copyPassword(passwordEl) {
     let El = passwordEl.id;
     if (El == "password1"){
-        navigator.clipboard.writeText(password1.textContent);
+        await navigator.clipboard.writeText(password1.textContent);
         alert("Option 1 passwords copied")
     } else if (El == "password2") {
         navigator.clipboard.writeText(password2.textContent);
